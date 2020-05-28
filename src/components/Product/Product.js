@@ -10,7 +10,7 @@ const Product = props => {
       <div className="card">
         <div
           className="img-container p-5"
-          onClick={() => console.log("you clicked me on the product image")}
+          onClick={() => props.handleDetail(id)}
         >
           <Link to="/details">
             <img src={img} alt="product" className="card-img-top" />
@@ -18,9 +18,7 @@ const Product = props => {
           <button
             className="cart-btn"
             disabled={inCart ? true : false}
-            onClick={() => {
-              console.log("added to the cart");
-            }}
+            onClick={() => props.addToCart(id)}
           >
             {inCart ? (
               <p className="text-capitalize mb-0" disabled>

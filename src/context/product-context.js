@@ -24,12 +24,17 @@ export default props => {
     setProducts();
   }, []);
 
-  const handleDetail = () => {
-    console.log("hello from detail");
+  const getItem = id => {
+    return productList.find(item => item.id === id);
   };
 
-  const addToCart = () => {
-    console.log("hello from add to cart");
+  const handleDetail = id => {
+    const product = getItem(id);
+    setDtlProduct(product);
+  };
+
+  const addToCart = id => {
+    console.log(`hello from cart.id is ${id}`);
   };
 
   return (
