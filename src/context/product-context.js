@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
 import { storeProducts, detailProduct } from "../data";
 
@@ -8,8 +8,21 @@ export const ProductContext = React.createContext({
 });
 
 export default props => {
-  const [productList, setProductList] = useState(storeProducts);
+  const [productList, setProductList] = useState([]);
   const [dtlProduct, setDtlProduct] = useState(detailProduct);
+
+  const setProducts = () => {
+    let tempProducts = [];
+    storeProducts.forEach(item => {
+      const singleItem = { ...item };
+      tempProducts = [...tempProducts, singleItem];
+    });
+    setProductList(tempProducts);
+  };
+
+  useEffect(() => {
+    setProducts();
+  }, []);
 
   const handleDetail = () => {
     console.log("hello from detail");
