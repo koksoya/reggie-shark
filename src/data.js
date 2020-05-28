@@ -54,3 +54,16 @@ export const storeProducts = [
       "Colorful socks Great Socks World designed and manufactured in Poland for the best quality."
   }
 ];
+
+export const detailProduct = {
+  id: 1,
+  title: "Mountain Socks",
+  img: "img/socks-1.png",
+  price: 14,
+  company: "SpoxSox",
+  info:
+    "Are you ready for the weekend and adventures? Mismatched mountains socks are a perfect companion for all exciting trips - one is with green forest 🌲 and the other with high mountains ⛰️ and creek 🌊.",
+  inCart: false,
+  count: 0,
+  total: 0
+};

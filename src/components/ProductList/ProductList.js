@@ -1,18 +1,26 @@
-import React, { useState } from "react";
+import React, { useContext } from "react";
 
-import Product from "../Product/Product";
 import Title from "../Title/Title";
-import { storeProducts } from "../../data";
+import Product from "../Product/Product";
+import { ProductContext } from "../../context/product-context";
 
-const ProductList = props => {
-  const [products, setProducts] = useState(storeProducts);
+const ProductList = () => {
+  const value = useContext(ProductContext);
 
   return (
     <React.Fragment>
       <div className="py-5">
         <div className="container">
           <Title name="our" title="products" />
-          <div className="row"></div>
+          <div className="row">
+            {value.products.map(product => (
+              <Product
+                key={product.id}
+                product={product}
+                handleDetail={value.handleDetail}
+              />
+            ))}
+          </div>
         </div>
       </div>
     </React.Fragment>
