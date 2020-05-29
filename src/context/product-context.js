@@ -2,16 +2,14 @@ import React, { useState, useEffect } from "react";
 
 import { storeProducts, detailProduct } from "../data";
 
-export const ProductContext = React.createContext({
-  products: [],
-  detailProduct: {},
-  crt: []
-});
+export const ProductContext = React.createContext();
 
 export default props => {
   const [productList, setProductList] = useState([]);
   const [dtlProduct, setDtlProduct] = useState(detailProduct);
   const [cart, setCart] = useState([]);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [modalProduct, setModalProduct] = useState(detailProduct);
 
   const setProducts = () => {
     let tempProducts = [];
@@ -43,8 +41,18 @@ export default props => {
     product.count = 1;
     const price = product.price;
     product.total = price;
-    setCart(prevCart => ([...prevCart, product]));
+    setCart(prevCart => [...prevCart, product]);
     setProductList(updatedProducts);
+  };
+
+  const openModal = id => {
+    const product = getItem(id);
+    setModalProduct(product);
+    setIsModalOpen(true);
+  };
+
+  const closeModal = () => {
+    setIsModalOpen(false);
   };
 
   return (
@@ -52,9 +60,13 @@ export default props => {
       value={{
         products: productList,
         detailProduct: dtlProduct,
-        crt: cart,
+        modalProduct: modalProduct,
+        cart: cart,
+        isModalOpen: isModalOpen,
         handleDetail: handleDetail,
-        addToCart: addToCart
+        addToCart: addToCart,
+        openModal: openModal,
+        closeModal: closeModal
       }}
     >
       {props.children}

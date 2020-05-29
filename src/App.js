@@ -1,15 +1,15 @@
-import React, { Component } from 'react';
-import { Switch, Route } from 'react-router-dom'
+import React, { Component } from "react";
+import { Switch, Route } from "react-router-dom";
 
-import './App.css';
-import 'bootstrap/dist/css/bootstrap.min.css'
+import "./App.css";
+import "bootstrap/dist/css/bootstrap.min.css";
 
-import Navbar from './components/Navbar/Navbar'
-import ProductList from './components/ProductList/ProductList'
-import Default from './components/Default/Default'
-import Details from './components/Details/Details'
-import Cart from './components/Cart/Cart'
-
+import Navbar from "./components/Navbar/Navbar";
+import ProductList from "./components/ProductList/ProductList";
+import Default from "./components/Default/Default";
+import Details from "./components/Details/Details";
+import Cart from "./components/Cart/Cart";
+import Modal from "./components/Modal/Modal";
 
 class App extends Component {
   render() {
@@ -22,6 +22,7 @@ class App extends Component {
           <Route path="/cart" component={Cart} />
           <Route component={Default} />
         </Switch>
+        <Modal />
       </React.Fragment>
     );
   }

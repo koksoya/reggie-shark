@@ -19,6 +19,8 @@ const ProductList = () => {
                 product={product}
                 handleDetail={productContext.handleDetail}
                 addToCart={productContext.addToCart}
+                openModal={productContext.openModal}
+                closeModal={productContext.closeModal}
               />
             ))}
           </div>

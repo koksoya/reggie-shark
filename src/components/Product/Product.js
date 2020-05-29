@@ -18,7 +18,10 @@ const Product = props => {
           <button
             className="cart-btn"
             disabled={inCart ? true : false}
-            onClick={() => props.addToCart(id)}
+            onClick={() => {
+              props.addToCart(id)
+              props.openModal(id)
+            }}
           >
             {inCart ? (
               <p className="text-capitalize mb-0" disabled>
