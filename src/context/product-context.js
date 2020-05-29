@@ -4,12 +4,14 @@ import { storeProducts, detailProduct } from "../data";
 
 export const ProductContext = React.createContext({
   products: [],
-  detailProduct: {}
+  detailProduct: {},
+  crt: []
 });
 
 export default props => {
   const [productList, setProductList] = useState([]);
   const [dtlProduct, setDtlProduct] = useState(detailProduct);
+  const [cart, setCart] = useState([]);
 
   const setProducts = () => {
     let tempProducts = [];
@@ -34,7 +36,15 @@ export default props => {
   };
 
   const addToCart = id => {
-    console.log(`hello from cart.id is ${id}`);
+    let updatedProducts = [...productList];
+    const index = updatedProducts.indexOf(getItem(id));
+    const product = updatedProducts[index];
+    product.inCart = true;
+    product.count = 1;
+    const price = product.price;
+    product.total = price;
+    setCart(prevCart => ([...prevCart, product]));
+    setProductList(updatedProducts);
   };
 
   return (
@@ -42,6 +52,7 @@ export default props => {
       value={{
         products: productList,
         detailProduct: dtlProduct,
+        crt: cart,
         handleDetail: handleDetail,
         addToCart: addToCart
       }}

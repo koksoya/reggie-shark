@@ -15,7 +15,7 @@ const Details = () => {
     price,
     inCart
   } = productContext.detailProduct;
-  const { addToCart, handleDetail } = productContext;
+  const { addToCart } = productContext;
 
   return (
     <div className="container py-5">
@@ -53,7 +53,7 @@ const Details = () => {
               <Button>back to products</Button>
             </Link>
             <Button
-              cart={inCart}
+              cart
               disabled={inCart ? true : false}
               onClick={() => addToCart(id)}
             >
