@@ -74,7 +74,6 @@ export default props => {
   const clearCart = () => {
     setCart(prevCart => {
       setProducts();
-      addTotals([]);
       return [];
     });
   };
