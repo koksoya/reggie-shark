@@ -1,8 +1,10 @@
-import React from "react";
+import React, { useContext } from "react";
+
+import { ProductContext } from "../../../context/product-context";
 
 const CartItem = props => {
   const { id, title, img, price, total, count } = props.item;
-  const { increment, decrement, removeItem } = props.value;
+  const { increment, decrement, removeItem } = useContext(ProductContext);
 
   return (
     <div className="row my-2 text-capitalize text-center">

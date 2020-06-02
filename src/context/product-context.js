@@ -72,7 +72,11 @@ export default props => {
   };
 
   const clearCart = () => {
-    console.log("cart was cleared");
+    setCart(prevCart => {
+      setProducts()
+      addTotals()
+      return []
+    }) 
   };
 
   const addTotals = () => {

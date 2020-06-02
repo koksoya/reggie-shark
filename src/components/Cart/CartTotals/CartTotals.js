@@ -1,9 +1,12 @@
-import React from "react";
-
+import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 
+import { ProductContext } from "../../../context/product-context";
+
 const CartTotals = props => {
-  const { cartSubtotal, cartTax, cartTotal, clearCart } = props.value;
+  const { cartSubtotal, cartTax, cartTotal, clearCart } = useContext(
+    ProductContext
+  );
   return (
     <React.Fragment>
       <div className="container">

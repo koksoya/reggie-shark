@@ -5,7 +5,7 @@ import Product from "../Product/Product";
 import { ProductContext } from "../../context/product-context";
 
 const ProductList = () => {
-  const productContext = useContext(ProductContext);
+  const products = useContext(ProductContext).products;
 
   return (
     <React.Fragment>
@@ -13,14 +13,10 @@ const ProductList = () => {
         <div className="container">
           <Title name="our" title="products" />
           <div className="row">
-            {productContext.products.map(product => (
+            {products.map(product => (
               <Product
                 key={product.id}
                 product={product}
-                handleDetail={productContext.handleDetail}
-                addToCart={productContext.addToCart}
-                openModal={productContext.openModal}
-                closeModal={productContext.closeModal}
               />
             ))}
           </div>

@@ -8,15 +8,15 @@ import CartList from "./CartList/CartList";
 import CartTotals from "./CartTotals/CartTotals";
 
 const Cart = () => {
-  const productContext = useContext(ProductContext);
+  const cart = useContext(ProductContext).cart;
 
   const returnCart =
-    productContext.cart.length > 0 ? (
+    cart.length > 0 ? (
       <React.Fragment>
         <Title name="your" title="cart" />
         <CartColumns />
-        <CartList value={productContext} />
-        <CartTotals value={productContext} />
+        <CartList />
+        <CartTotals />
       </React.Fragment>
     ) : (
       <EmptyCart />
