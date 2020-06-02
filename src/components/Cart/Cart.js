@@ -5,6 +5,7 @@ import Title from "../Title/Title";
 import CartColumns from "./CartColumns/CartColumns";
 import EmptyCart from "./EmptyCart.js/EmptyCart";
 import CartList from "./CartList/CartList";
+import CartTotals from "./CartTotals/CartTotals";
 
 const Cart = () => {
   const productContext = useContext(ProductContext);
@@ -15,6 +16,7 @@ const Cart = () => {
         <Title name="your" title="cart" />
         <CartColumns />
         <CartList value={productContext} />
+        <CartTotals value={productContext} />
       </React.Fragment>
     ) : (
       <EmptyCart />

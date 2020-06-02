@@ -46,6 +46,7 @@ export default props => {
     product.total = price;
     setCart(prevCart => [...prevCart, product]);
     setProductList(updatedProducts);
+    addTotals();
   };
 
   const openModal = id => {
@@ -72,6 +73,17 @@ export default props => {
 
   const clearCart = () => {
     console.log("cart was cleared");
+  };
+
+  const addTotals = () => {
+    let subtotal = 0;
+    cart.map(item => (subtotal += item.total));
+    const tempTax = subtotal * 0.13;
+    const tax = parseFloat(tempTax.toFixed(2));
+    const total = subtotal + tax;
+    setCartSubtotal(subtotal);
+    setCartTax(tax);
+    setCartTotal(total);
   };
 
   return (
