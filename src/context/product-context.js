@@ -25,6 +25,9 @@ export default props => {
 
   useEffect(() => {
     setProducts();
+  }, []);
+
+  useEffect(() => {
     addTotals(cart);
   }, [cart]);
 
