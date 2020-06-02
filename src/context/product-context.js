@@ -25,7 +25,8 @@ export default props => {
 
   useEffect(() => {
     setProducts();
-  }, []);
+    addTotals(cart)
+  }, [cart]);
 
   const getItem = id => {
     return productList.find(item => item.id === id);
@@ -46,7 +47,6 @@ export default props => {
     product.total = price;
     setCart(prevCart => [...prevCart, product]);
     setProductList(updatedProducts);
-    addTotals();
   };
 
   const openModal = id => {
@@ -79,9 +79,9 @@ export default props => {
     }) 
   };
 
-  const addTotals = () => {
+  const addTotals = (crt) => {
     let subtotal = 0;
-    cart.map(item => (subtotal += item.total));
+    crt.map(item => (subtotal += item.total));
     const tempTax = subtotal * 0.13;
     const tax = parseFloat(tempTax.toFixed(2));
     const total = subtotal + tax;
