@@ -25,7 +25,7 @@ export default props => {
 
   useEffect(() => {
     setProducts();
-    addTotals(cart)
+    addTotals(cart);
   }, [cart]);
 
   const getItem = id => {
@@ -73,13 +73,13 @@ export default props => {
 
   const clearCart = () => {
     setCart(prevCart => {
-      setProducts()
-      addTotals()
-      return []
-    }) 
+      setProducts();
+      addTotals([]);
+      return [];
+    });
   };
 
-  const addTotals = (crt) => {
+  const addTotals = crt => {
     let subtotal = 0;
     crt.map(item => (subtotal += item.total));
     const tempTax = subtotal * 0.13;
