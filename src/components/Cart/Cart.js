@@ -7,7 +7,7 @@ import EmptyCart from "./EmptyCart.js/EmptyCart";
 import CartList from "./CartList/CartList";
 import CartTotals from "./CartTotals/CartTotals";
 
-const Cart = () => {
+const Cart = (props) => {
   const cart = useContext(ProductContext).cart;
 
   const returnCart =
@@ -16,7 +16,7 @@ const Cart = () => {
         <Title name="your" title="cart" />
         <CartColumns />
         <CartList />
-        <CartTotals />
+        <CartTotals history={props.history}/>
       </React.Fragment>
     ) : (
       <EmptyCart />
