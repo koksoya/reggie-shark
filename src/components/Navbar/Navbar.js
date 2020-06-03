@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 
 import styled from "styled-components";
 import Button from "../Button/Button";
+import logo from "../../logo.png"
 
 const Navbar = () => {
   return (
@@ -11,7 +12,7 @@ const Navbar = () => {
       navbar-dark px-sm-5"
     >
       <Link to="/">
-        <img src="" alt="socks logo" className="navbar-brand" />
+        <img src={logo} style={{ width: "5rem", height: "5rem" }} alt="socks logo" className="navbar-brand" />
       </Link>
       <ul className="navbar-nav align-items-center">
         <li className="nav-item ml-5">

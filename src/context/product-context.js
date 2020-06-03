@@ -110,7 +110,7 @@ export default props => {
     crt.map(item => (subtotal += item.total));
     const tempTax = subtotal * 0.13;
     const tax = parseFloat(tempTax.toFixed(2));
-    const total = subtotal + tax;
+    const total = parseFloat((subtotal + tax).toFixed(2));
     setCartSubtotal(subtotal);
     setCartTax(tax);
     setCartTotal(total);
