@@ -63,11 +63,25 @@ export default props => {
   };
 
   const increment = id => {
-    console.log("this is increment method");
+    let tempCart = [...cart];
+    const index = tempCart.indexOf(getItem(id));
+    const product = tempCart[index];
+    product.count += 1;
+    product.total += product.price;
+    setCart(tempCart);
   };
 
   const decrement = id => {
-    console.log("this is decrement method");
+    let tempCart = [...cart];
+    const index = tempCart.indexOf(getItem(id));
+    const product = tempCart[index];
+    product.count -= 1;
+    if (product.count === 0) {
+      removeItem(id);
+    } else {
+      product.total -= product.price;
+      setCart(tempCart);
+    }
   };
 
   const removeItem = id => {
