@@ -21,7 +21,7 @@ const CartItem = props => {
         {title}
       </div>
       <div className="col-10 mx-auto col-lg-2">
-        <span className="d-lg-none">price : </span>${price}
+        <span className="d-lg-none">price : </span>${price.toFixed(2)}
       </div>
       <div className="col-10 mx-auto col-lg-2 my-2 my-lg-0">
         <div className="d-flex justify-content-center">
@@ -45,7 +45,7 @@ const CartItem = props => {
         <span className="d-lg-none">
           <strong>item total : </strong>
         </span>
-        $ {total}
+        $ {total.toFixed(2)}
       </div>
     </div>
   );
