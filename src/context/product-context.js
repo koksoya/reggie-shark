@@ -71,7 +71,17 @@ export default props => {
   };
 
   const removeItem = id => {
-    console.log("item removed");
+    let tempProducts = [...productList];
+    let tempCart = [...cart];
+    tempCart = tempCart.filter(item => item.id !== id);
+
+    const index = tempProducts.indexOf(getItem(id));
+    let removedProduct = tempProducts[index];
+    removedProduct.inCart = false;
+    removedProduct.count = 0;
+    removedProduct.total = 0;
+    setProductList(tempProducts);
+    setCart(tempCart);
   };
 
   const clearCart = () => {
