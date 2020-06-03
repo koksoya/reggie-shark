@@ -7,7 +7,7 @@ import { ProductContext } from "../../context/product-context";
 
 const Product = props => {
   const { id, title, img, price, inCart } = props.product;
-  const { handleDetail, addToCart, openModal, closeModal } = useContext(
+  const { handleDetail, addToCart, openModal } = useContext(
     ProductContext
   );
   return (
